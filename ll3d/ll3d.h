@@ -6,7 +6,7 @@
 /*   By: sbednar <sbednar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 14:56:09 by edraugr-          #+#    #+#             */
-/*   Updated: 2019/02/14 21:23:03 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/02/21 04:42:57 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,34 @@
 # define CAM_SE			1
 # define CAM_FO			0.1f
 
-# define SCREEN_X		1920
-# define SCREEN_Y		1080
+# define SCREEN_X		1000
+# define SCREEN_Y		1000
+
+# define KEY_W			13
+# define KEY_A			0
+# define KEY_S			1
+# define KEY_D			2
+# define KEY_C			8
+# define KEY_Q			12
+# define KEY_E			14
+# define KEY_F			3
+# define KEY_R			15
+# define KEY_T			17
+# define KEY_ESC		53
+# define KEY_ARROWL		123
+# define KEY_ARROWR		124
+# define KEY_ARROWD		125
+# define KEY_ARROWU		126
+# define KEY_1			83
+# define KEY_2			84
+# define KEY_3			85
+# define KEY_4			86
+# define KEY_5			87
+# define KEY_6			88
+# define KEY_7			89
+# define KEY_8			91
+# define KEY_X			7
+# define KEY_H			4
 
 # define COLOR_WHITE	0xFFFFFF
 # define COLOR_RED		0xFF0000

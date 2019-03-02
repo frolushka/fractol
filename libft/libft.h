@@ -6,7 +6,7 @@
 /*   By: sbednar <sbednar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 16:55:09 by edraugr-          #+#    #+#             */
-/*   Updated: 2019/02/16 22:04:57 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/02 19:37:03 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,12 +108,5 @@ void				ft_i_love_u_peer(void);
 
 void				ft_swap(int *a, int *b);
 int					get_next_line(const int fd, char **line);
-
-// t_vector			*vec_init(const size_t size, const size_t block_size);
-// void				vec_free(t_vector **vec);
-// void				vec_clear(t_vector *vec);
-// void				vec_swap(t_vector *vec, const size_t i1, const size_t i2);
-// char				*vec_get(t_vector *vec, const size_t i);
-// void				vec_set(t_vector *vec, const char *val, const size_t i1);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: sbednar <sbednar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 05:37:56 by sbednar           #+#    #+#             */
-/*   Updated: 2019/02/14 20:39:07 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/02/21 04:04:35 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	image_set_pixel(t_image *img, const int x, const int y, const int c)
 	int	p;
 	int	*im;
 
-	if (x <= -img->x / 2.0f || x >= img->x / 2.0f || y <= -img->y / 2.0f ||
+	if (x < -img->x / 2.0f || x >= img->x / 2.0f || y < -img->y / 2.0f ||
 		y >= img->y / 2.0f)
 		return ;
 	p = (int)((x + img->x / 2.0f) + (y + img->y / 2.0f) * img->x) * img->bpp;

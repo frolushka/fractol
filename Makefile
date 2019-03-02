@@ -6,7 +6,7 @@
 #    By: sbednar <sbednar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/06 16:23:16 by sbednar           #+#    #+#              #
-#    Updated: 2019/02/16 22:40:24 by sbednar          ###   ########.fr        #
+#    Updated: 2019/03/02 22:22:57 by sbednar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,18 +19,22 @@ LL3D_DIR	=	./ll3d
 MLX_DIR		=	./minilibx
 FT_DIR		=	./libft
 
-SRC			= 	main.c \
-				fractol_init.c \
-				fractol_free.c \
-				hook_key.c
+SRC_RAW		= 	fcam.c \
+				frac.c \
+				frac_process.c \
+				hook_key.c \
+				main.c \
+				mlx.c \
+				frac_mandelbrot.c \
+				frac_julia.c
 
-OBJ			=	$(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
+OBJ			=	$(addprefix $(OBJ_DIR)/,$(SRC_RAW:.c=.o))
 
 INCS		=	-I. -I./ll3d -I./minilibx -I./libft
 LIBS		=	-L./libft -L./minilibx -L./ll3d -lft -lmlx -lll3d -framework OpenGL -framework AppKit
 
 CC			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror -o9
+CFLAGS		=	-Wall -Wextra -Werror
 
 all: $(NAME)
 	@echo "\033[92m\033[1m---> ALL DONE\033[0m\033[0m"
@@ -45,7 +49,7 @@ $(NAME):
 	@echo "\033[91m\033[1m[4/6] \033[97m\033[1mobjects folder create:\033[0m"
 	mkdir -p $(OBJ_DIR)
 	@echo "\033[91m\033[1m[5/6] \033[97m\033[1mc files compile:\033[0m"
-	@$(MAKE) $(OBJ)
+	@make $(OBJ)
 	@echo "\033[91m\033[1m[6/6] \033[97m\033[1mexecutable compile:\033[0m"
 	$(CC) $(CFLAGS) $(INCS) $(LIBS) $(OBJ) -o $(NAME)
 
@@ -58,6 +62,9 @@ src: clean
 	$(CC) $(CFLAGS) $(INCS) $(LIBS) $(OBJ) -o $(NAME)
 
 $(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
+	$(CC) $(CFLAGS) $(INCS) -o $@ -c $<
+
+$(OBJ_DIR)/%.o:$(SRC_DIR)/fracs/%.c
 	$(CC) $(CFLAGS) $(INCS) -o $@ -c $<
 
 clean:

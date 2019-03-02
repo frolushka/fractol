@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_init_ll3d.c                                    :+:      :+:    :+:   */
+/*   mlx.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbednar <sbednar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/04 07:10:16 by sbednar           #+#    #+#             */
-/*   Updated: 2019/02/28 18:38:08 by sbednar          ###   ########.fr       */
+/*   Created: 2019/02/28 18:38:25 by sbednar           #+#    #+#             */
+/*   Updated: 2019/03/02 19:49:10 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ll3d.h"
+#include "fractol.h"
 
-t_mlx	*mlx_delete(t_mlx **mlx)
+t_mlx	*fmlx_delete(t_mlx **mlx)
 {
 	if (!mlx || !*mlx)
 		return (NULL);
@@ -26,7 +26,7 @@ t_mlx	*mlx_delete(t_mlx **mlx)
 	return (*mlx);
 }
 
-t_mlx	*mlx_init_ll3d(const int width, const int height, char *header)
+t_mlx	*fmlx_init(const int width, const int height, char *header)
 {
 	t_mlx	*res;
 
@@ -40,6 +40,6 @@ t_mlx	*mlx_init_ll3d(const int width, const int height, char *header)
 	if (!(res->mlx = mlx_init()) ||
 		!(res->win = mlx_new_window(res->mlx, width, height, header)) ||
 		!(res->image = image_init(res, width, height)))
-		return (mlx_free_ll3d(&res));
+		return (fmlx_delete(&res));
 	return (res);
 }
