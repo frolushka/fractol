@@ -6,7 +6,7 @@
 /*   By: sbednar <sbednar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/16 21:51:59 by sbednar           #+#    #+#             */
-/*   Updated: 2019/03/02 22:29:23 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/02 23:57:32 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@
 # define DEFAULT_SSPEED		2.0f
 
 # define THREADS_COUNT		16
+
+# define MODE_MANDELBROT	0
+# define MODE_JULIA			1
+
+# define MOUSE_KEY_LEFT		1
+# define MOUSE_KEY_RIGHT	2
 
 # define KEY_W				13
 # define KEY_A				0
@@ -59,17 +65,10 @@
 
 typedef unsigned short		ushort;
 
-typedef enum 	e_fmode
-{
-	Mandel = 0,
-	Julia = 1,
-	Ship = 2
-}				t_fmode;
-
 typedef struct	s_fcam
 {
 	float		coord[3];
-	t_fmode		mode;
+	char		mode;
 	float		mspeed;
 	float		sspeed;
 }				t_fcam;
@@ -83,7 +82,7 @@ typedef struct	s_frac
 	int			tc;
 }				t_frac;
 
-t_fcam	*fcam_init(const t_fmode mode, const float mspeed, const float sspeed);
+t_fcam	*fcam_init(const char mode, const float mspeed, const float sspeed);
 t_fcam	*fcam_delete(t_fcam **fcam);
 void	fcam_move(t_fcam *fcam, const float dx, const float dy);
 void	fcam_scale(t_fcam *fcam, const float s);
@@ -91,6 +90,7 @@ void	fcam_scale(t_fcam *fcam, const float s);
 t_frac	*frac_init(const float r, const ushort its);
 t_frac	*frac_delete(t_frac **frac);
 
+int		hook_mouse_key(const int key, int x, int y, t_frac *f);
 int		hook_key(const int key, t_frac *frac);
 
 t_mlx	*fmlx_delete(t_mlx **mlx);

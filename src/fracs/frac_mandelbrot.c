@@ -6,7 +6,7 @@
 /*   By: sbednar <sbednar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 19:59:07 by sbednar           #+#    #+#             */
-/*   Updated: 2019/03/02 23:17:51 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/03 00:05:06 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ int					frac_mandelbrot_get_color(t_frac *f, float *p)
 		if (p[0] * p[0] + p[1] * p[1] > f->r * f->r)
 			break;
 	}
+	it = (int)(it / (float)f->its * 255);
 	return ((it << 16) | (it << 8) | it);
 }

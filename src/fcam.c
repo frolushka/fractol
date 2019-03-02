@@ -6,13 +6,13 @@
 /*   By: sbednar <sbednar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 18:23:07 by sbednar           #+#    #+#             */
-/*   Updated: 2019/03/02 22:56:58 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/02 23:34:37 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-t_fcam	*fcam_init(const t_fmode mode, const float mspeed, const float sspeed)
+t_fcam	*fcam_init(const char mode, const float mspeed, const float sspeed)
 {
 	t_fcam	*res;
 
