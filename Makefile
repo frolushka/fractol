@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sbednar <sbednar@student.42.fr>            +#+  +:+       +#+         #
+#    By: sbednar <sbednar@student.fr.42>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/06 16:23:16 by sbednar           #+#    #+#              #
-#    Updated: 2019/03/02 22:22:57 by sbednar          ###   ########.fr        #
+#    Updated: 2019/03/03 02:20:25 by sbednar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,9 @@ SRC_RAW		= 	fcam.c \
 				main.c \
 				mlx.c \
 				frac_mandelbrot.c \
-				frac_julia.c
+				frac_julia.c \
+				frac_ship.c \
+				frac_radio.c
 
 OBJ			=	$(addprefix $(OBJ_DIR)/,$(SRC_RAW:.c=.o))
 

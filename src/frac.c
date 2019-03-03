@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   frac.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbednar <sbednar@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sbednar <sbednar@student.fr.42>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 18:33:53 by sbednar           #+#    #+#             */
-/*   Updated: 2019/03/02 22:29:53 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/03 02:59:55 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,14 @@ t_frac	*frac_delete(t_frac **frac)
 	ft_memdel((void **)frac);
 	return (*frac);
 }
+
+// t_tfrac	*tfrac_init(pthread_t i, t_frac *f)
+// {
+// 	t_tfrac	*res;
+
+// 	if (!(res = (t_tfrac *)malloc(sizeof(t_tfrac))))
+// 		return (NULL);
+// 	res->i = i;
+// 	res->f = f;
+// 	return (res);
+// }

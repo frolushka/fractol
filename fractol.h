@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbednar <sbednar@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sbednar <sbednar@student.fr.42>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/16 21:51:59 by sbednar           #+#    #+#             */
-/*   Updated: 2019/03/02 23:57:32 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/03 03:04:21 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,40 @@
 
 # define MODE_MANDELBROT	0
 # define MODE_JULIA			1
+# define MODE_SHIP			2
+# define MODE_RADIO			3
+# define MODE_COUNT			4
 
 # define MOUSE_KEY_LEFT		1
 # define MOUSE_KEY_RIGHT	2
 
+# define KEY_Q				12
 # define KEY_W				13
+# define KEY_E				14
+# define KEY_R				15
+# define KEY_T				17
+# define KEY_Y				16
+# define KEY_U				32
+# define KEY_I				34
+# define KEY_O				31
+# define KEY_P				35
 # define KEY_A				0
 # define KEY_S				1
 # define KEY_D				2
-# define KEY_C				8
-# define KEY_Q				12
-# define KEY_E				14
 # define KEY_F				3
-# define KEY_R				15
-# define KEY_T				17
+# define KEY_G				5
+# define KEY_H				4
+# define KEY_J				38
+# define KEY_K				40
+# define KEY_L				37
+# define KEY_Z				6
+# define KEY_X				7
+# define KEY_C				8
+# define KEY_V				9
+# define KEY_B				11
+# define KEY_N				45
+# define KEY_M				46
+
 # define KEY_ESC			53
 # define KEY_ARROWL			123
 # define KEY_ARROWR			124
@@ -60,8 +80,6 @@
 # define KEY_6				88
 # define KEY_7				89
 # define KEY_8				91
-# define KEY_X				7
-# define KEY_H				4
 
 typedef unsigned short		ushort;
 
@@ -82,6 +100,12 @@ typedef struct	s_frac
 	int			tc;
 }				t_frac;
 
+typedef struct	s_tfrac
+{
+	short		i;
+	t_frac		*f;
+}				t_tfrac;
+
 t_fcam	*fcam_init(const char mode, const float mspeed, const float sspeed);
 t_fcam	*fcam_delete(t_fcam **fcam);
 void	fcam_move(t_fcam *fcam, const float dx, const float dy);
@@ -100,5 +124,7 @@ void	frac_process(t_frac *f);
 
 int		frac_mandelbrot_get_color(t_frac *f, float *p);
 int		frac_julia_get_color(t_frac *f, float *p);
+int		frac_ship_get_color(t_frac *f, float *p);
+int		frac_radio_get_color(t_frac *f, float *p);
 
 #endif

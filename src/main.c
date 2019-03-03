@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbednar <sbednar@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sbednar <sbednar@student.fr.42>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/16 21:53:03 by sbednar           #+#    #+#             */
-/*   Updated: 2019/03/02 23:56:37 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/03 02:21:05 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,10 @@ static char		get_mode_from_str(const char *str)
 		return (MODE_MANDELBROT);
 	if (!ft_strcmp(str, "JULIA"))
 		return (MODE_JULIA);
-	// if (!ft_strcmp(str, "SHIP"))
-	// 	return ((t_fmode)2);
+	if (!ft_strcmp(str, "SHIP"))
+		return (MODE_SHIP);
+	if (!ft_strcmp(str, "RADIO"))
+		return (MODE_RADIO);
 	return (MODE_MANDELBROT);
 }
 
