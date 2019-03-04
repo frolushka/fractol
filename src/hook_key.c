@@ -6,7 +6,7 @@
 /*   By: sbednar <sbednar@student.fr.42>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 22:44:24 by edraugr-          #+#    #+#             */
-/*   Updated: 2019/03/03 02:44:36 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/04 18:43:30 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,29 +45,6 @@ static void inline	hook_key_move(const int key, t_frac *frac)
 		frac->fcam->coord[0] = 0;
 		frac->fcam->coord[1] = 1;
 	}
-
-}
-
-int					hook_mouse_key(const int key, int x, int y, t_frac *f)
-{
-	if (key == MOUSE_KEY_LEFT)
-	{
-		if (f->fcam->mode != MODE_JULIA)
-		{
-			f->fcam->coord[0] += (x - f->mlx->width / 2) * 3.0f / f->fcam->coord[2] / f->mlx->width;
-			f->fcam->coord[1] += (y - f->mlx->height / 2) * 3.0f / f->fcam->coord[2] / f->mlx->height;
-			fcam_scale(f->fcam, 1);
-		}
-		else
-		{
-			f->fcam->coord[0] = (x - f->mlx->width / 2) * 3.0f / f->fcam->coord[2] / f->mlx->width;
-			f->fcam->coord[1] = (y - f->mlx->height / 2) * 3.0f / f->fcam->coord[2] / f->mlx->height;
-		}
-	}
-	else if (key == MOUSE_KEY_RIGHT && f->fcam->mode != MODE_JULIA)
-		fcam_scale(f->fcam, -1);
-	frac_process(f);
-	return (0);
 }
 
 int					hook_key(const int key, t_frac *frac)

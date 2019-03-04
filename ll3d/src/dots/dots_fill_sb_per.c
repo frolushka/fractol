@@ -6,7 +6,7 @@
 /*   By: sbednar <sbednar@student.fr.42>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 09:29:15 by sbednar           #+#    #+#             */
-/*   Updated: 2019/02/13 23:20:11 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/04 18:01:26 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	dots_fill_sb_per(const t_vec3 *point, t_vec2 *res, const t_cam *cam)
 {
-	float	a;
-	float	b;
+	long double	a;
+	long double	b;
 
 	a = cam->focus;
 	b = a + point->z;

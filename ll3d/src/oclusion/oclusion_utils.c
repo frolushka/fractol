@@ -6,7 +6,7 @@
 /*   By: sbednar <sbednar@student.fr.42>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 00:32:40 by sbednar           #+#    #+#             */
-/*   Updated: 2019/02/14 00:38:11 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/04 18:01:26 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	check_out(const t_dots *d, const int d1, const int d2)
 }
 
 int	swap_if_d2_less(t_vec2 **d1, t_vec2 **d2,
-	const float d1v, const float d2v)
+	const long double d1v, const long double d2v)
 {
 	t_vec2 *t;
 

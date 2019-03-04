@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   image_draw_line.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbednar <sbednar@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sbednar <sbednar@student.fr.42>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 07:50:40 by sbednar           #+#    #+#             */
-/*   Updated: 2019/02/14 20:39:40 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/04 18:01:26 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	image_draw_line_1(t_mlx const *mlx, int *t)
 		{
 			t[10] += t[9];
 			image_set_pixel(mlx->image, t[10], t[12], color_lerp(t[14], t[15],
-				(float)ft_fabs(t[10] - t[16]) / ft_fabs(t[11] - t[16])));
+				(long double)ft_fabs(t[10] - t[16]) / ft_fabs(t[11] - t[16])));
 		}
 		return (0);
 	}
@@ -42,12 +42,12 @@ static int	image_draw_line_2(t_mlx const *mlx, int *t)
 	{
 		++t[12];
 		image_set_pixel(mlx->image, t[10], t[12], color_lerp(t[14], t[15],
-			(float)ft_fabs(t[12] - t[17]) / ft_fabs(t[13] - t[17])));
+			(long double)ft_fabs(t[12] - t[17]) / ft_fabs(t[13] - t[17])));
 		while (--t[7] != 0)
 		{
 			++t[12];
 			image_set_pixel(mlx->image, t[10], t[12], color_lerp(t[14], t[15],
-				(float)ft_fabs(t[12] - t[17]) / ft_fabs(t[13] - t[17])));
+				(long double)ft_fabs(t[12] - t[17]) / ft_fabs(t[13] - t[17])));
 		}
 		return (0);
 	}
@@ -61,13 +61,13 @@ static int	image_draw_line_3(t_mlx const *mlx, int *t)
 		t[10] += t[9];
 		++t[12];
 		image_set_pixel(mlx->image, t[10], t[12], color_lerp(t[14], t[15],
-			(float)ft_fabs(t[10] - t[16]) / ft_fabs(t[11] - t[16])));
+			(long double)ft_fabs(t[10] - t[16]) / ft_fabs(t[11] - t[16])));
 		while (--t[7] != 0)
 		{
 			t[10] += t[9];
 			++t[12];
 			image_set_pixel(mlx->image, t[10], t[12], color_lerp(t[14], t[15],
-			(float)ft_fabs(t[10] - t[16]) / ft_fabs(t[11] - t[16])));
+			(long double)ft_fabs(t[10] - t[16]) / ft_fabs(t[11] - t[16])));
 		}
 		return (0);
 	}
@@ -92,10 +92,10 @@ static int	image_draw_line_4(t_mlx const *mlx, int *t,
 			++t[12];
 			dt[4] = dt[2] >> dt[0];
 			image_set_pixel(mlx->image, t[10], t[12], color_set_br(
-				color_lerp(t[14], t[15], (float)ft_fabs(t[10] - t[16]) /
+				color_lerp(t[14], t[15], (long double)ft_fabs(t[10] - t[16]) /
 				ft_fabs(t[11] - t[16])), (255.0f - dt[4]) / 255.0f));
 			image_set_pixel(mlx->image, t[10] + t[9], t[12], color_set_br(
-				color_lerp(t[14], t[15], (float)ft_fabs(t[10] - t[16]) /
+				color_lerp(t[14], t[15], (long double)ft_fabs(t[10] - t[16]) /
 				ft_fabs(t[11] - t[16])), (255.0f - (dt[4] ^ dt[5])) / 255.0f));
 		}
 		image_set_pixel(mlx->image, t[11], t[13], t[15]);

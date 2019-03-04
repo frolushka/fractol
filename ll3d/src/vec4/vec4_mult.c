@@ -6,13 +6,13 @@
 /*   By: sbednar <sbednar@student.fr.42>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 05:11:46 by sbednar           #+#    #+#             */
-/*   Updated: 2019/02/13 23:27:07 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/04 18:01:26 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ll3d.h"
 
-t_vec4	*vec4_mult(const t_vec4 *v, const float s)
+t_vec4	*vec4_mult(const t_vec4 *v, const long double s)
 {
 	t_vec4	*vr;
 

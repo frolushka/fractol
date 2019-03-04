@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec3_mult.c                                        :+:      :+:    :+:   */
+/*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbednar <sbednar@student.fr.42>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/04 05:11:10 by sbednar           #+#    #+#             */
-/*   Updated: 2019/03/04 18:01:26 by sbednar          ###   ########.fr       */
+/*   Created: 2019/03/04 18:33:56 by sbednar           #+#    #+#             */
+/*   Updated: 2019/03/04 18:39:06 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ll3d.h"
+#include "fractol.h"
 
-t_vec3	*vec3_mult(const t_vec3 *v, const long double s)
+int get_color(int it, t_frac *f)
 {
-	t_vec3	*vr;
+    int i;
 
-	if (!(vr = vec3_init()))
-		return (NULL);
-	vr->x = v->x * s;
-	vr->y = v->y * s;
-	vr->z = v->z * s;
-	return (vr);
+    i = -1;
+    while (++i < 6)
+    {
+        if (it >= f->colors[0][i] && it < f->colors[0][i + 1])
+            return (f->lerp ?
+                color_lerp(f->colors[1][i], f->colors[1][i + 1],
+                    (f->colors[1][i + 1] - f->colors[1][i + 1]) / 32.0) :
+                f->colors[1][i]);
+    }
+    return (f->colors[1][7]);
 }

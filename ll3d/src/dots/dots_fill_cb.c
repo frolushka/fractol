@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   dots_fill_cb.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbednar <sbednar@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sbednar <sbednar@student.fr.42>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 07:12:44 by sbednar           #+#    #+#             */
-/*   Updated: 2019/02/14 20:38:44 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/04 18:01:26 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ll3d.h"
 
-static float	dots_fill_cb_det(const float val[4][4])
+static long double	dots_fill_cb_det(const long double val[4][4])
 {
 	return (val[0][0] * val[1][1] * val[2][2] -
 		val[0][0] * val[1][2] * val[2][1] +
@@ -22,14 +22,14 @@ static float	dots_fill_cb_det(const float val[4][4])
 		val[0][2] * val[1][1] * val[2][0]);
 }
 
-static void		row_from_mtx(const float val[4][4], t_vec3 *v, const int c)
+static void		row_from_mtx(const long double val[4][4], t_vec3 *v, const int c)
 {
 	v->x = val[c][0];
 	v->y = val[c][1];
 	v->z = val[c][2];
 }
 
-static void		row_to_mtx(float val[4][4], const t_vec3 *v, const int c)
+static void		row_to_mtx(long double val[4][4], const t_vec3 *v, const int c)
 {
 	val[c][0] = v->x;
 	val[c][1] = v->y;

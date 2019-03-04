@@ -6,7 +6,7 @@
 #    By: sbednar <sbednar@student.fr.42>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/06 16:23:16 by sbednar           #+#    #+#              #
-#    Updated: 2019/03/03 02:20:25 by sbednar          ###   ########.fr        #
+#    Updated: 2019/03/04 18:39:45 by sbednar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,12 +23,14 @@ SRC_RAW		= 	fcam.c \
 				frac.c \
 				frac_process.c \
 				hook_key.c \
+				hook_mouse.c \
 				main.c \
 				mlx.c \
 				frac_mandelbrot.c \
 				frac_julia.c \
 				frac_ship.c \
-				frac_radio.c
+				frac_radio.c \
+				color.c
 
 OBJ			=	$(addprefix $(OBJ_DIR)/,$(SRC_RAW:.c=.o))
 

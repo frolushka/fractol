@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   oclude_x.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbednar <sbednar@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sbednar <sbednar@student.fr.42>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 00:30:22 by sbednar           #+#    #+#             */
-/*   Updated: 2019/02/14 20:41:00 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/04 18:01:26 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,23 @@ static void	oclude_x_1(t_vec2 *d1, t_vec2 *d2)
 {
 	if (d1->y > SCREEN_Y)
 	{
-		d1->x = d1->x + (int)((float)
+		d1->x = d1->x + (int)((long double)
 			((d2->x - d1->x) * (SCREEN_Y - d1->y))
-			/ (float)(d2->y - d1->y));
+			/ (long double)(d2->y - d1->y));
 		d1->y = SCREEN_Y;
 	}
 	if (d2->y < 0)
 	{
-		d2->x = d2->x + (int)((float)
+		d2->x = d2->x + (int)((long double)
 			((d2->x - d1->x) * d2->y)
-			/ (float)(d1->y - d2->y));
+			/ (long double)(d1->y - d2->y));
 		d2->y = 0;
 	}
 	if (d1->y < 0)
 	{
-		d1->x = d2->x + (int)((float)
+		d1->x = d2->x + (int)((long double)
 			((d2->x - d1->x) * d2->y)
-			/ (float)(d1->y - d2->y));
+			/ (long double)(d1->y - d2->y));
 		d1->y = 0;
 	}
 }
@@ -52,9 +52,9 @@ void		oclude_x(t_vec2 *d1, t_vec2 *d2)
 	}
 	if (d2->y > SCREEN_Y)
 	{
-		d2->x = d1->x + (int)((float)
+		d2->x = d1->x + (int)((long double)
 			((d2->x - d1->x) * (SCREEN_Y - d1->y))
-			/ (float)(d2->y - d1->y));
+			/ (long double)(d2->y - d1->y));
 		d2->y = SCREEN_Y;
 	}
 	oclude_x_1(d1, d2);

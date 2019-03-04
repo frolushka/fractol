@@ -6,17 +6,17 @@
 /*   By: sbednar <sbednar@student.fr.42>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 06:36:53 by sbednar           #+#    #+#             */
-/*   Updated: 2019/02/13 23:23:31 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/04 18:01:26 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ll3d.h"
 
-t_mtx4		*mtx4_get_rotation(const float x, const float y, const float z,
-	const float a)
+t_mtx4		*mtx4_get_rotation(const long double x, const long double y, const long double z,
+	const long double a)
 {
-	float	c;
-	float	s;
+	long double	c;
+	long double	s;
 	t_mtx4	*res;
 
 	if (!(res = mtx4_init(0)))

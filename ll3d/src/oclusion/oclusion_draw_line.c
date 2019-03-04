@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   oclusion_draw_line.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbednar <sbednar@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sbednar <sbednar@student.fr.42>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 00:33:46 by sbednar           #+#    #+#             */
-/*   Updated: 2019/02/14 20:41:38 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/04 18:01:26 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void	oclusion_draw_line(const t_mlx *c, t_dots *d,
 		oclude_z(v1, v2, d->cb[d1]->z, d->cb[d2]->z);
 	else
 		oclude_z(v2, v1, d->cb[d2]->z, d->cb[d1]->z);
-	swap_if_d2_less(&v1, &v2, (float)v2->x, (float)v1->x);
+	swap_if_d2_less(&v1, &v2, (long double)v2->x, (long double)v1->x);
 	oclude_x(v1, v2);
-	swap_if_d2_less(&v1, &v2, (float)v2->y, (float)v1->y);
+	swap_if_d2_less(&v1, &v2, (long double)v2->y, (long double)v1->y);
 	oclude_y(v1, v2);
 	vec2_set(v1, v1->x - SCREEN_X / 2, v1->y - SCREEN_Y / 2);
 	vec2_set(v2, v2->x - SCREEN_X / 2, v2->y - SCREEN_Y / 2);

@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   camera_rotate_custom.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbednar <sbednar@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sbednar <sbednar@student.fr.42>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 01:22:04 by sbednar           #+#    #+#             */
-/*   Updated: 2019/02/14 21:23:08 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/04 18:01:26 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ll3d.h"
 
 void		camera_rotate_custom(t_cam *cam, const t_vec3 *p,
-	const t_vec3 *axis, const float a)
+	const t_vec3 *axis, const long double a)
 {
 	t_mtx4		*tmp;
 	t_mtx4		*mr;
-	float		xp;
-	float		yp;
-	float		zp;
+	long double		xp;
+	long double		yp;
+	long double		zp;
 
 	if (!(tmp = mtx4_copy(cam->cam)))
 		return ;

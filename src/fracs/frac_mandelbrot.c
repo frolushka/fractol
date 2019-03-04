@@ -6,16 +6,16 @@
 /*   By: sbednar <sbednar@student.fr.42>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 19:59:07 by sbednar           #+#    #+#             */
-/*   Updated: 2019/03/03 02:06:47 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/04 18:40:17 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void inline	frac_mandelbrot(float *p)
+static void inline	frac_mandelbrot(long double *p)
 {
-	float	t1;
-	float	t2;
+	long double	t1;
+	long double	t2;
 
 	t1 = p[0] * p[0] - p[1] * p[1] + p[2];
 	t2 = 2 * p[0] * p[1] + p[3];
@@ -23,12 +23,12 @@ static void inline	frac_mandelbrot(float *p)
 	p[1] = t2;
 }
 
-int					frac_mandelbrot_get_color(t_frac *f, float *p)
+int					frac_mandelbrot_get_color(t_frac *f, long double *p)
 {
 	short	it;
-	float	r;
-	float	t;
-	float	pc;
+	long double	r;
+	long double	t;
+	long double	pc;
 
 	r = sqrt((p[2] - 0.25f) * (p[2] - 0.25f) + p[3] * p[3]);
 	t = atan2(p[3], p[2] - 0.25f);
@@ -44,6 +44,5 @@ int					frac_mandelbrot_get_color(t_frac *f, float *p)
 		if (p[0] * p[0] + p[1] * p[1] > f->r * f->r)
 			break;
 	}
-	it = (int)(it / (float)f->its * 255);
-	return ((it << 16) | (it << 8) | it);
+	return (get_color(it, f));
 }

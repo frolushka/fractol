@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   fcam.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbednar <sbednar@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sbednar <sbednar@student.fr.42>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 18:23:07 by sbednar           #+#    #+#             */
-/*   Updated: 2019/03/02 23:34:37 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/04 18:01:26 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-t_fcam	*fcam_init(const char mode, const float mspeed, const float sspeed)
+t_fcam	*fcam_init(const char mode, const long double mspeed, const long double sspeed)
 {
 	t_fcam	*res;
 
@@ -33,15 +33,15 @@ t_fcam	*fcam_delete(t_fcam **fcam)
 	return (*fcam);
 }
 
-void	fcam_move(t_fcam *fcam, const float dx, const float dy)
+void	fcam_move(t_fcam *fcam, const long double dx, const long double dy)
 {
 	fcam->coord[0] += dx * fcam->mspeed / fcam->coord[2];
 	fcam->coord[1] += dy * fcam->mspeed / fcam->coord[2];
 }
 
-void	fcam_scale(t_fcam *fcam, const float s)
+void	fcam_scale(t_fcam *fcam, const long double s)
 {
-	float sspeed;
+	long double sspeed;
 
 	sspeed = s > 0 ? fcam->sspeed : 1 / fcam->sspeed;
 	fcam->coord[2] *= sspeed;

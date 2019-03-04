@@ -6,16 +6,16 @@
 /*   By: sbednar <sbednar@student.fr.42>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 01:53:34 by sbednar           #+#    #+#             */
-/*   Updated: 2019/03/03 03:08:17 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/04 18:41:04 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void inline	frac_ship(float *p)
+static void inline	frac_ship(long double *p)
 {
-	float	t1;
-	float	t2;
+	long double	t1;
+	long double	t2;
 
 	t1 = p[0] * p[0] - p[1] * p[1] + p[2];
 	t2 = ft_fabs(2 * p[0] * p[1]) + p[3];
@@ -23,10 +23,9 @@ static void inline	frac_ship(float *p)
 	p[1] = t2;
 }
 
-int					frac_ship_get_color(t_frac *f, float *p)
+int					frac_ship_get_color(t_frac *f, long double *p)
 {
 	short	it;
-    float   st;
 
 	p[0] = 0;
 	p[1] = 0;
@@ -37,6 +36,5 @@ int					frac_ship_get_color(t_frac *f, float *p)
 		if (p[0] * p[0] + p[1] * p[1] > f->r * f->r)
 			break;
 	}
-	st = it / (float)f->its;
-	return color_lerp(COLOR_BLUE, COLOR_RED, st);
+	return (get_color(it, f));
 }

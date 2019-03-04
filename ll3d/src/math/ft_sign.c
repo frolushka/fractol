@@ -6,13 +6,13 @@
 /*   By: sbednar <sbednar@student.fr.42>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 07:40:25 by sbednar           #+#    #+#             */
-/*   Updated: 2019/02/13 23:22:13 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/04 18:01:26 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ll3d.h"
 
-int	ft_sign(const float a)
+int	ft_sign(const long double a)
 {
 	if (!a)
 		return (0);

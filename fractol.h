@@ -6,7 +6,7 @@
 /*   By: sbednar <sbednar@student.fr.42>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/16 21:51:59 by sbednar           #+#    #+#             */
-/*   Updated: 2019/03/03 03:04:21 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/04 18:51:24 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <pthread.h>
+# include <time.h>
 # include "libft.h"
 # include "ll3d.h"
 # include "mlx.h"
@@ -81,14 +82,19 @@
 # define KEY_7				89
 # define KEY_8				91
 
+# define SCROLL_UP			4
+# define SCROLL_DOWN		5
+
+# define FPS				10
+
 typedef unsigned short		ushort;
 
 typedef struct	s_fcam
 {
-	float		coord[3];
-	char		mode;
-	float		mspeed;
-	float		sspeed;
+	long double		coord[3];
+	char			mode;
+	long double		mspeed;
+	long double		sspeed;
 }				t_fcam;
 
 typedef struct	s_frac
@@ -96,8 +102,13 @@ typedef struct	s_frac
 	t_mlx		*mlx;
 	t_fcam		*fcam;
 	ushort		its;
-	float		r;
+	long double		r;
 	int			tc;
+	clock_t		lt;
+	int			colors[2][8];
+	char		lerp;
+	int			lmx;
+	int			lmy;
 }				t_frac;
 
 typedef struct	s_tfrac
@@ -106,15 +117,16 @@ typedef struct	s_tfrac
 	t_frac		*f;
 }				t_tfrac;
 
-t_fcam	*fcam_init(const char mode, const float mspeed, const float sspeed);
+t_fcam	*fcam_init(const char mode, const long double mspeed, const long double sspeed);
 t_fcam	*fcam_delete(t_fcam **fcam);
-void	fcam_move(t_fcam *fcam, const float dx, const float dy);
-void	fcam_scale(t_fcam *fcam, const float s);
+void	fcam_move(t_fcam *fcam, const long double dx, const long double dy);
+void	fcam_scale(t_fcam *fcam, const long double s);
 
-t_frac	*frac_init(const float r, const ushort its);
+t_frac	*frac_init(const long double r, const ushort its);
 t_frac	*frac_delete(t_frac **frac);
 
 int		hook_mouse_key(const int key, int x, int y, t_frac *f);
+int 	hook_mouse(const int x, const int y, t_frac *f);
 int		hook_key(const int key, t_frac *frac);
 
 t_mlx	*fmlx_delete(t_mlx **mlx);
@@ -122,9 +134,11 @@ t_mlx	*fmlx_init(const int width, const int height, char *header);
 
 void	frac_process(t_frac *f);
 
-int		frac_mandelbrot_get_color(t_frac *f, float *p);
-int		frac_julia_get_color(t_frac *f, float *p);
-int		frac_ship_get_color(t_frac *f, float *p);
-int		frac_radio_get_color(t_frac *f, float *p);
+int		frac_mandelbrot_get_color(t_frac *f, long double *p);
+int		frac_julia_get_color(t_frac *f, long double *p);
+int		frac_ship_get_color(t_frac *f, long double *p);
+int		frac_radio_get_color(t_frac *f, long double *p);
+
+int 	get_color(int it, t_frac *f);
 
 #endif

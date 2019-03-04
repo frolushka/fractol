@@ -6,7 +6,7 @@
 /*   By: sbednar <sbednar@student.fr.42>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 04:32:14 by sbednar           #+#    #+#             */
-/*   Updated: 2019/03/03 03:05:26 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/04 18:16:17 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,6 @@ static void	frac_print_info(t_frac *f)
 {
 	char	text[1024];
 
-	// sprintf(text, "CAMERA POSITION:");
-	// mlx_string_put(f->mlx->mlx, f->mlx->win, 20, 20, COLOR_WHITE, text);
-	// sprintf(text, "%.3f %.3f", f->fcam->coord[0], f->fcam->coord[1]);
-	// mlx_string_put(f->mlx->mlx, f->mlx->win, 20, 40, COLOR_WHITE, text);
-	// sprintf(text, "MAXIMUM ITERATIONS:");
-	// mlx_string_put(f->mlx->mlx, f->mlx->win, 20, 60, COLOR_WHITE, text);
-	// sprintf(text, "%d", f->its);
-	// mlx_string_put(f->mlx->mlx, f->mlx->win, 20, 80, COLOR_WHITE, text);
 	sprintf(text, "USEFUL BUTTONS:");
 	mlx_string_put(f->mlx->mlx, f->mlx->win, 20, 20, COLOR_GREEN, text);
 	sprintf(text, "> MOVE - W A S D");
@@ -36,7 +28,7 @@ static void	frac_print_info(t_frac *f)
 	mlx_string_put(f->mlx->mlx, f->mlx->win, 20, 85, COLOR_GREEN, text);
 }
 
-static int	frac_draw_get_color(t_frac *f, float *p)
+static int	frac_draw_get_color(t_frac *f, long double *p)
 {
 	if (f->fcam->mode == MODE_MANDELBROT)
 		return (frac_mandelbrot_get_color(f, p));
@@ -51,7 +43,7 @@ static int	frac_draw_get_color(t_frac *f, float *p)
 
 static void	*frac_draw(void *v)
 {
-	float		p[6];
+	long double		p[6];
 	short		xy[2];
 	t_tfrac		*f;
 
@@ -76,6 +68,19 @@ static void	*frac_draw(void *v)
 	return (NULL);
 }
 
+static void	pointer_draw(t_frac *f)
+{
+	image_set_pixel(f->mlx->image, 0, 0, COLOR_RED);
+	image_set_pixel(f->mlx->image, 1, 0, COLOR_RED);
+	image_set_pixel(f->mlx->image, 0, 1, COLOR_RED);
+	image_set_pixel(f->mlx->image, 1, 1, COLOR_RED);
+	image_set_pixel(f->mlx->image, -1, 0, COLOR_RED);
+	image_set_pixel(f->mlx->image, 0, -1, COLOR_RED);
+	image_set_pixel(f->mlx->image, -1, -1, COLOR_RED);
+	image_set_pixel(f->mlx->image, -1, 1, COLOR_RED);
+	image_set_pixel(f->mlx->image, 1, -1, COLOR_RED);
+}
+
 void		frac_process(t_frac *f)
 {
 	t_tfrac		tfs[f->tc];
@@ -93,6 +98,7 @@ void		frac_process(t_frac *f)
 	i = -1;
 	while (++i < f->tc)
 		pthread_join(ts[i], NULL);
+	pointer_draw(f);
 	mlx_put_image_to_window(f->mlx->mlx, f->mlx->win, f->mlx->image->image, 0, 0);
 	frac_print_info(f);
 }

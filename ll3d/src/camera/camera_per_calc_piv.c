@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   camera_per_calc_piv.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbednar <sbednar@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sbednar <sbednar@student.fr.42>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 17:36:29 by sbednar           #+#    #+#             */
-/*   Updated: 2019/02/14 20:36:32 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/04 18:01:26 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ll3d.h"
 
-static void inline	camera_pcv_val(t_vec3 *res, const float val[4][4],
-	const float focus)
+static void inline	camera_pcv_val(t_vec3 *res, const long double val[4][4],
+	const long double focus)
 {
 	res->x = val[3][0] - val[2][0] * focus;
 	res->y = val[3][1] - val[2][1] * focus;

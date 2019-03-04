@@ -6,16 +6,16 @@
 /*   By: sbednar <sbednar@student.fr.42>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 02:16:37 by sbednar           #+#    #+#             */
-/*   Updated: 2019/03/03 02:19:16 by sbednar          ###   ########.fr       */
+/*   Updated: 2019/03/04 18:40:20 by sbednar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void inline	frac_radio(float *p)
+static void inline	frac_radio(long double *p)
 {
-	float	t1;
-	float	t2;
+	long double	t1;
+	long double	t2;
 
 	t1 = p[0] * p[0] * p[0] - 3 * p[0] * p[1] * p[1] + p[2];
 	t2 = 3 * p[0] * p[0] * p[1] - p[1] * p[1] * p[1] + p[3];
@@ -23,10 +23,10 @@ static void inline	frac_radio(float *p)
 	p[1] = t2;
 }
 
-int					frac_radio_get_color(t_frac *f, float *p)
+int					frac_radio_get_color(t_frac *f, long double *p)
 {
 	short	it;
-	float	p1[4];
+	long double	p1[4];
 
 	p1[0] = p[2];
 	p1[1] = p[3];
@@ -39,6 +39,5 @@ int					frac_radio_get_color(t_frac *f, float *p)
 		if (p1[0] * p1[0] + p1[1] * p1[1] > f->r * f->r)
 			break;
 	}
-	it = (int)(it / (float)f->its * 255);
-	return ((it << 16) | (it << 8) | it);
+	return (get_color(it, f));
 }
